@@ -8,13 +8,14 @@ def eqs(x:list[int], time:list[int]):
 
     x1 = x[0]
     x2 = x[1]
-    # Define parameters
+
+    # Parameters to define
     alfa = 0.15
     beta = 0.03
     gamma = 0.1
     delta = 0.01
 
-    # Define equations of Lotka-Volterra model
+    #Lotka-Volterra equation
     dxdt = [alfa * x1 - beta * x1 * x2,
             delta * x1 * x2 - gamma * x2]
     return dxdt
@@ -32,8 +33,8 @@ if __name__ == '__main__':
     sol = odeint(eqs, y0, t)
 
     # Extract the solution variables for plotting
-    x1 = sol[:, 0]  # extract the first variable
-    x2 = sol[:, 1]  # extract the second variable
+    x1 = sol[:, 0]
+    x2 = sol[:, 1] 
 
     # Plot the solution
     plt.plot(t, x1, label='Prey')
